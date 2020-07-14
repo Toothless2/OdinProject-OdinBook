@@ -10,4 +10,16 @@ class User < ApplicationRecord
 
   has_many :sentrequests, class_name: 'Friend', dependent: :destroy, foreign_key: :sender
   has_many :recivedrequests, class_name: 'Friend', dependent: :destroy, foreign_key: :recipient
+
+  has_and_belongs_to_many :friends, foreign_key: :pal_id, join_table: :relations, class_name: 'User', dependent: :destroy
+
+  def addFriend(friend)
+    friends << friend
+    friend.friends << self
+  end
+
+  def removeFriend(friend)
+    friend.friends.delete(self)
+    friends.delete(friend)
+  end
 end

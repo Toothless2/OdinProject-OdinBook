@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_14_162630) do
+ActiveRecord::Schema.define(version: 2020_07_14_171920) do
 
   create_table "friends", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 2020_07_14_162630) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "relations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "pal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pal_id"], name: "index_relations_on_pal_id"
+    t.index ["user_id"], name: "index_relations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  helper_method :getPossibleFriends
 
   # GET /posts
   # GET /posts.json
@@ -77,4 +78,8 @@ class PostsController < ApplicationController
     def like_post_params
       params.permit(:user_id, :post_id)
     end
+
+    def getPossibleFriends
+      return User.where.not(id: current_user.friends)
+  end
 end
