@@ -1,0 +1,16 @@
+
+    <nav class='navbar'>
+        <div class='navbar-brand'>
+          <img src='https://www.theodinproject.com/assets/odin-logo-2d729f16279e9fc3b58ce847eacf07f883bdfc95eb23bb5064ed59d36ef551d6.svg', class='navbar-item'>
+        </div>
+        <div class='navbar-menu'>
+          <div class='navbar-end'>
+            <div class='navbar-item'>
+              <div class='buttons'>
+                <%= button_to current_user.username, edit_user_registration_path, method: :get, class: 'button'%>
+                <%= button_to "Logout", destroy_user_session_path, method: :delete, class: 'button is-info' %>
+              </div>
+            </div>
+          </div>
+        </div>
+    </nav>

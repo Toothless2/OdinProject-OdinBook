@@ -44,6 +44,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'warden', '~> 1.2', '>= 1.2.8'
 gem 'devise'
 gem 'simple_form', '~> 5.0', '>= 5.0.2'
+gem 'bulma-rails', '~> 0.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

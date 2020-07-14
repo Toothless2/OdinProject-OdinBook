@@ -1,14 +1,11 @@
-
+<div class='box'>
 <%= simple_form_for(@post) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
-    <%= f.input :title %>
-    <%= f.input :body %>
-  </div>
+    <%= f.input :title, wrapper: false,label: false, placeholder: 'Title',input_html: {class: 'input'} %><br>
+    <%= f.input :body, as: :text, wrapper: false, label: false, placeholder: 'Your Post', input_html: {class: 'input textarea'} %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+    <%= f.button :submit, class: 'button mt-2'%>
 <% end %>
+</div>
