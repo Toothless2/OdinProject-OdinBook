@@ -1,24 +1,7 @@
-# README
+# Odin Book
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A more fully features Twitter/Facebook clone than seen here [TwitterClone](https://glacial-shore-70888.herokuapp.com/)
 
-Things you may want to cover:
+This can be found live o on heroku [here](https://voyage-choucroute-50915.herokuapp.com/)
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Styling for this verison may be done later, comments may also be added later
