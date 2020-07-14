@@ -1,3 +1,9 @@
 <div class='box'>
-    <%= user.username %> : <%= button_to "Add Friend!", '#', class: 'button' %>
+    <%= user.username %> : 
+
+    <% if current_user.sentrequests.find_by(recipient: user.id).nil? %>
+        <%= button_to "Add Friend!", send_friend_request_path(user_id: user.id), class: 'button' %>
+    <%else%>
+        Request Sent!
+    <%end%>
 </div>

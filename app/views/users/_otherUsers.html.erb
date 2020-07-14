@@ -1,6 +1,9 @@
 <nav class='panel'>
     <p class='panel-heading'>Suggested Users</p>
     <% User.where.not(id: current_user.id).each do  |u| %>
+        <%unless current_user.sentrequests.find_by(recipient: u.id).nil? && current_user.recivedrequests.find_by(sender: u.id).nil? %>
+            <%next%>
+        <%end%>
         <div class='panel-block'><%= render partial: 'users/userdisplay', locals: {user: u} %></div>
     <%end%>
 </nav>

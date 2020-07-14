@@ -1,8 +1,18 @@
 <nav class='panel'>
     <p class='panel-heading'><%= current_user.username %></p>
-    <p>Likes: <%= current_user.peopleLikedPosts.count %></p>
-    <p>Friends: 0</p>
-    <% User.where.not(id: current_user.id).each do  |u| %>
-        <div class='panel-block'><%= render partial: 'users/userdisplay', locals: {user: u} %></div>
+    <p class='panel-block'>Likes: <%= current_user.liked_posts.count %></p>
+    <div class='panel-block'>
+        <p>Friends: 0</p>
+        <% User.where.not(id: current_user.id).each do  |u| %>
+            <%= render partial: 'users/frienddisplay', locals: {user: u} %>
+        <%end%>
+    <div>
+</nav>
+<nav class='panel'>
+    <p class='panel-heading'>Friend Requests</p>
+    <% current_user.recivedrequests.each  do |u| %>
+        <div class='box'>
+            <%= User.find(u.sender).username %> : <%= button_to "Accept Request", '#', class: 'button' %>
+        </div>
     <%end%>
 </nav>

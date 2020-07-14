@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   post '/posts:user_id:post_id', to: 'posts#like', as: 'like_post'
+  post '/sessions/:user_id', to: 'sessions#sendrequest', as: 'send_friend_request'
 
   devise_for :users, controllers: { registrations: 'registrations' }
   resources :posts

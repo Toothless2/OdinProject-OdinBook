@@ -4,10 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :posts, dependent: :destroy
-  has_many :likes, dependent: :destroy
+  has_many :posts, dependent: :destroy # posts user has made
+  has_many :likes, dependent: :destroy # posts user has likes
+  has_many :liked_posts, through: :posts, source: :likes # posts user has made that have been liked
 
-  def peopleLikedPosts
-    Like.where(post_id: posts)
-  end
+  has_many :sentrequests, class_name: 'Friend', dependent: :destroy, foreign_key: :sender
+  has_many :recivedrequests, class_name: 'Friend', dependent: :destroy, foreign_key: :recipient
 end
