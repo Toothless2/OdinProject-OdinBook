@@ -1,0 +1,6 @@
+<nav class='panel'>
+    <p class='panel-heading'>Suggested Users</p>
+    <% User.where.not(id: current_user.id).each do  |u| %>
+        <div class='panel-block'><%= render partial: 'users/userdisplay', locals: {user: u} %></div>
+    <%end%>
+</nav>

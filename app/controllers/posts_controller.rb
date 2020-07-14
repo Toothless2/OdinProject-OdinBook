@@ -57,6 +57,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def like
+    Like.likePost(like_post_params[:user_id], like_post_params[:post_id])
+
+    redirect_to root_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -66,5 +72,9 @@ class PostsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:title, :body)
+    end
+
+    def like_post_params
+      params.permit(:user_id, :post_id)
     end
 end

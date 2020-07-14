@@ -1,6 +1,9 @@
 
 <div class='columns'>
   <div class='column is-one-third'>
+    <%= render partial: 'profile'%>
+  </div>
+  <div class='column is-one-third'>
     <%= render partial: 'form' %>
 
     <h2 class='title'>Your feed:</h2>
@@ -14,5 +17,8 @@
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>-->
     <% end %>
+  </div>
+  <div class='column is-one-third'>
+    <%= render partial: 'users/otherUsers'%>
   </div>
 </div>

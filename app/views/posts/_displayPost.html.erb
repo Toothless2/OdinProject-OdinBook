@@ -15,14 +15,10 @@
           <%= post.body %>
         </p>
       </div>
-      <nav class="level is-mobile">
-        <div class="level-left">
-          <a class="level-item" aria-label="like">
-            <span class="icon is-small">
-              <i class="fas fa-heart" aria-hidden="true"></i>
-            </span>
-          </a>
-        </div>
+      <nav class="level">
+          <%= link_to like_post_path(user_id: current_user.id, post_id: post.id), method: :post, class:'level-item' do%>
+              <span class='icon'><i class="fa fa-heart"><%= post.likes.count %></i></span>
+          <%end%>
       </nav>
     </div>
   </article>

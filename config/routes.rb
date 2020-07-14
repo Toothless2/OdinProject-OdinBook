@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  post '/posts:user_id:post_id', to: 'posts#like', as: 'like_post'
+
   devise_for :users, controllers: { registrations: 'registrations' }
   resources :posts
 
