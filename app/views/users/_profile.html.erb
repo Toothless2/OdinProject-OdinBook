@@ -1,0 +1,8 @@
+<nav class='panel'>
+    <p class='panel-heading'><%= current_user.username %></p>
+    <p>Likes: <%= current_user.peopleLikedPosts.count %></p>
+    <p>Friends: 0</p>
+    <% User.where.not(id: current_user.id).each do  |u| %>
+        <div class='panel-block'><%= render partial: 'users/userdisplay', locals: {user: u} %></div>
+    <%end%>
+</nav>
