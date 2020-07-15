@@ -1,12 +1,14 @@
 <nav class='panel'>
     <p class='panel-heading'><%= current_user.username %></p>
     <p class='panel-block'>Likes: <%= current_user.liked_posts.count %></p>
-    <div class='panel-block'>
-        <p>Friends: <%= current_user.friends.count %></p>
-        <% current_user.friends.each do  |u| %>
-            <%= render partial: 'users/frienddisplay', locals: {user: u} %>
-        <%end%>
-    <div>
+</nav>
+
+
+<nav class='panel'>
+    <p class='panel-heading'>Friends: <%= current_user.friends.count %></p><br />
+    <% current_user.friends.each do  |u| %>
+        <div class='panel-block'><%= u.username %> <%= button_to "Unfriend", friend_delete_path(u.id), method: :delete, class: 'button'%></div>
+    <%end%>
 </nav>
 <nav class='panel'>
     <p class='panel-heading'>Friend Requests</p>

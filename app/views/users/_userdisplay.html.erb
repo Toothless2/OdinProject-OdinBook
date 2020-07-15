@@ -1,4 +1,4 @@
-<div class='box'>
+
     <%= user.username %> : 
 
     <% if current_user.sentrequests.find_by(recipient: user.id).nil? %>
@@ -6,4 +6,3 @@
     <%else%>
         Request Sent!
     <%end%>
-</div>
